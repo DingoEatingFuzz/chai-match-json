@@ -28,3 +28,11 @@ with how to specify path selectors (such as `$.children[3].prices[price<30]`).
 ```sh
 $ browserify lib/match-json.js -o chai-match-json.js
 ```
+
+### Test
+
+```sh
+$ npm install -g karma-cli
+$ npm install
+$ karma start
+```
