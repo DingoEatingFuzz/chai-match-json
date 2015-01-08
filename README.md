@@ -1,10 +1,10 @@
-### matchJSON, for Chai
+## matchJSON, for Chai
 
 [![Travis CI](https://travis-ci.org/DingoEatingFuzz/chai-match-json.svg?branch=master)](https://travis-ci.org/DingoEatingFuzz/chai-match-json)
 
 A way to assert the structure of given JSON.
 
-## Examples
+### Examples
 It looks like this:
 
 ```js
