@@ -1,0 +1,37 @@
+{
+  "name": "chai-match-json",
+  "version": "1.0.0",
+  "description": "A Chai plugin for validating JSON paths",
+  "main": "chai-match-json.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "JSONPath": "^0.10.0"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "karma": "^0.12.31",
+    "karma-browserify": "^2.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DingoEatingFuzz/chai-match-json.git"
+  },
+  "keywords": [
+    "chai"
+  ],
+  "author": "Michael Lange",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DingoEatingFuzz/chai-match-json/issues"
+  },
+  "homepage": "https://github.com/DingoEatingFuzz/chai-match-json"
+}
