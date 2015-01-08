@@ -1,4 +1,4 @@
-![Travis CI](https://travis-ci.org/DingoEatingFuzz/chai-match-json.svg?branch=master)
+[![Travis CI](https://travis-ci.org/DingoEatingFuzz/chai-match-json.svg?branch=master)](https://travis-ci.org/DingoEatingFuzz/chai-match-json)
 ### matchJSON, for Chai
 
 A way to assert the structure of given JSON.
