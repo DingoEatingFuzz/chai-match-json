@@ -1,6 +1,6 @@
 {
   "name": "chai-match-json",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Chai plugin for validating JSON paths",
   "main": "chai-match-json.js",
   "directories": {
