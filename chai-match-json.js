@@ -6,7 +6,7 @@
 
   var jsonPath = require('JSONPath');
 
-  // Module systems magic dance.
+  // Revised module systems magic dance. (for browserify support)
 
   /* istanbul ignore else */
   if (typeof require === "function" && typeof exports === "object" && typeof module === "object") {
@@ -17,8 +17,9 @@
     define(function () {
       return matchJSON;
     });
-  } else {
-    // Other environment (usually <script> tag): plug in to global chai instance directly.
+  }
+
+  if (chai && typeof chai.use === 'function') {
     chai.use(matchJSON);
   }
 
@@ -44,6 +45,8 @@
         return objectMatchesPaths(json, expected);
       });
 
+      flag(this, 'matchJSON', matches);
+
       var messageSuffix = [
         '\n\n',
         JSON.stringify(expected, undefined, 2),
@@ -51,26 +54,25 @@
         JSON.stringify(actual, undefined, 2)
       ].join('');
 
-      var mainAssert = this.assert(
+      return this.assert(
         matches.length,
         'expected a match for paths' + messageSuffix,
         'expected to not find a match for paths' + messageSuffix
       );
+    });
 
-      if (flag(this, 'once')) {
-        debugger;
+    Assertion.addProperty('once', function () {
+      flag(this, 'once', true);
+
+      var matches = flag(this, 'matchJSON');
+
+      if (matches !== undefined) {
         return assert(
           matches.length === 1,
           'expected only one JSON match',
           'expected more than one JSON match'
         );
       }
-
-      return mainAssert;
-    });
-
-    Assertion.addProperty('once', function () {
-      flag(this, 'once', true);
     });
 
     // assert
