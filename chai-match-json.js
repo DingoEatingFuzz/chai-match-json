@@ -98,10 +98,6 @@
 
       return Object.keys(paths).every(function(prop) {
         var expectation = jsonPath.eval(obj, prop)[0];
-        if (expectation instanceof Array && expectation.length === 1) {
-          expectation = expectation[0];
-        }
-
         return utils.eql(expectation, paths[prop]);
       });
     }
@@ -282,7 +278,18 @@ function jsonPath(obj, expr, arg) {
 }
 })(typeof exports === 'undefined' ? this['jsonPath'] = {} : exports, typeof require == "undefined" ? null : require);
 
-},{"vm":3}],3:[function(require,module,exports){
+},{"vm":4}],3:[function(require,module,exports){
+
+var indexOf = [].indexOf;
+
+module.exports = function(arr, obj){
+  if (indexOf) return arr.indexOf(obj);
+  for (var i = 0; i < arr.length; ++i) {
+    if (arr[i] === obj) return i;
+  }
+  return -1;
+};
+},{}],4:[function(require,module,exports){
 var indexOf = require('indexof');
 
 var Object_keys = function (obj) {
@@ -422,15 +429,4 @@ exports.createContext = Script.createContext = function (context) {
     return copy;
 };
 
-},{"indexof":4}],4:[function(require,module,exports){
-
-var indexOf = [].indexOf;
-
-module.exports = function(arr, obj){
-  if (indexOf) return arr.indexOf(obj);
-  for (var i = 0; i < arr.length; ++i) {
-    if (arr[i] === obj) return i;
-  }
-  return -1;
-};
-},{}]},{},[1]);
+},{"indexof":3}]},{},[1]);
