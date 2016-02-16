@@ -13,6 +13,21 @@ var FIXTURE = [
     name: 'Object 2',
     value: 'Value 2',
     space: 'One'
+  },
+  {
+    deepest: {
+      deeper: {
+        deep: 3
+      }
+    },
+    array1: [
+      41
+    ],
+    array3: [
+      42,
+      43,
+      44
+    ]
   }
 ];
 
@@ -28,6 +43,40 @@ describe('match-json', function() {
     expect(FIXTURE).to.matchJSON({
       '$.name'  : 'Object 2',
       '$.value' : 'Value 2'
+    });
+  });
+
+  it('should match against deep objects', function() {
+    expect(FIXTURE).to.matchJSON({
+      '$.deepest': { deeper: { deep: 3 } }
+    });
+
+    expect(FIXTURE).to.matchJSON({
+      '$.deepest.deeper': { deep: 3 }
+    });
+
+    expect(FIXTURE).to.matchJSON({
+      '$.deepest.deeper.deep': 3
+    });
+  });
+
+  it("should match against arrays", function() {
+    expect(FIXTURE).to.matchJSON({
+      '$.array1': [ 41 ],
+    });
+
+    expect(FIXTURE).to.matchJSON({
+      '$.array1.0': 41,
+    });
+
+    expect(FIXTURE).to.matchJSON({
+      '$.array3': [ 42, 43, 44 ],
+    });
+
+    expect(FIXTURE).to.matchJSON({
+      '$.array3.0': 42,
+      '$.array3.1': 43,
+      '$.array3.2': 44
     });
   });
 
