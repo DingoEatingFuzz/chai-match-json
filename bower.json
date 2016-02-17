@@ -1,7 +1,7 @@
 {
   "name": "chai-match-json",
   "main": "chai-match-json.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/DingoEatingFuzz/chai-match-json",
   "authors": [
     "Michael Lange <dingoeatingfuzz@gmail.com>"
